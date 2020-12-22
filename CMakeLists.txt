@@ -2,16 +2,16 @@ cmake_minimum_required(VERSION 3.10)
 
 project(cmini VERSION 0.1 LANGUAGES C)
 
-option(USE_KERNEL "Use kernel code" ON)
+option(USE_PAGAN "Use kernel code" ON)
 
 configure_file(version.h.in version.h)
 set(SOURCES cmini.c)
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-if(USE_KERNEL)
-    add_subdirectory(kernel)
-    list(APPEND EXTRA_LIBS kernel)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE USE_KERNEL)
+if(USE_PAGAN)
+    add_subdirectory(lib/pagan)
+    list(APPEND EXTRA_LIBS pagan)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE USE_PAGAN)
 endif()
 
 target_include_directories(
