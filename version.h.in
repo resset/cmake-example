@@ -1,0 +1,2 @@
+#define cmini_VERSION_MAJOR @cmini_VERSION_MAJOR@
+#define cmini_VERSION_MINOR @cmini_VERSION_MINOR@
