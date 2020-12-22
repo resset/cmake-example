@@ -4,15 +4,17 @@ project(cmini VERSION 0.1 LANGUAGES C)
 
 option(USE_PAGAN "Use kernel code" ON)
 
-configure_file(version.h.in version.h)
-set(SOURCES cmini.c)
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME})
 
 if(USE_PAGAN)
     add_subdirectory(lib/pagan)
     list(APPEND EXTRA_LIBS pagan)
     target_compile_definitions(${PROJECT_NAME} PRIVATE USE_PAGAN)
 endif()
+
+configure_file(version.h.in version.h)
+set(SOURCES src/cmini.c)
+target_sources(${PROJECT_NAME} PRIVATE ${SOURCES})
 
 target_include_directories(
     ${PROJECT_NAME}

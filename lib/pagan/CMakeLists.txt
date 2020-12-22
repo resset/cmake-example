@@ -1,7 +1,8 @@
 project(pagan VERSION 0.1 LANGUAGES C)
 
-set(SOURCES src/pagan_startup.c)
+add_library(${PROJECT_NAME} STATIC)
 
-add_library(${PROJECT_NAME} STATIC ${SOURCES})
+set(SOURCES src/pagan_startup.c)
+target_sources(${PROJECT_NAME} PRIVATE ${SOURCES})
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)
