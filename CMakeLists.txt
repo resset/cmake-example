@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
 
 project(cmini VERSION 0.1 LANGUAGES C)
 
-option(USE_PAGAN "Use kernel code" ON)
-
 add_executable(${PROJECT_NAME})
+
+option(USE_PAGAN "Use kernel code" ON)
 
 if(USE_PAGAN)
     add_subdirectory(lib/pagan)
